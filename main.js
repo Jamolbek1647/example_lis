@@ -4,15 +4,21 @@ console.log('JS')
 const person1=Object.create({}, {
     first_name:{
         value: 'Kamolbek',
-        writable: true
+        writable: true, //yozish yozishmasligi
+        configurable: true,
+        enumerable: true //ko'rsatish ko'rsatishmasligi
     },
-    lastname:{
+    lastName:{
         value:'Ikromov'
     },
     age:{
-        value: 24
+        value: 25
+    },
+    birthYear:{
+        get(){
+            return new Date().getFullYear() - this.age;
+        }
     }
-
 }
 );
 console.log(person1)
@@ -24,4 +30,13 @@ const person2={
     age: 27,
     lastname:'Ikromov'
 }
+
 console.log(person2)
+
+function Person(first_name, last_name, age){
+    this.first_name=first_name;
+    this.last_name=last_name;
+    this.age=age;
+};
+const p1 = new Person('Axmad', 'Tolipoc', 25);
+console.log(p1);
