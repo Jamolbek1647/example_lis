@@ -40,3 +40,8 @@ function Person(first_name, last_name, age){
 };
 const p1 = new Person('Axmad', 'Tolipoc', 25);
 console.log(p1);
+
+for (const key in person1){
+    console.log(key)
+    if (Object.hasOwnProperty.call(person1, key))
+}
